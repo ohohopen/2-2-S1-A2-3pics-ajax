@@ -1,0 +1,37 @@
+button {
+  background-color: #0171fe;
+  color: #fff;
+  border-radius: 3px;
+  padding: 5px 7px;
+  border: 3px solid transparent;
+}
+
+button:hover {
+  border: 3px solid #61a7ff;
+}
+
+.show {
+  text-align: left;
+}
+
+.show div {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 10px;
+  margin: 10px 10px 0 0;
+}
+
+.show div span {
+  display: block;
+}
+
+.show div span.name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.show div span.email {
+  font-size: 12px;
+}
+/*# sourceMappingURL=style.css.map */

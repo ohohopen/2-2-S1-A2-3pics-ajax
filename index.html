@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<button class="btn">Find 3 Girls</button>
+		<div class="show"></div>
+
+		<script>
+			let btn = document.querySelector(".btn"),
+				show = document.querySelector(".show"),
+				str = "";
+			btn.addEventListener("click", function () {
+				axios
+					.get(
+						"https://randomuser.me/api/?results=3&gender=female&inc=email,name,picture"
+					)
+					.then((res) => {
+						// console.log(res);
+						let len = res.data.results.length;
+						let newDiv = document.createElement("div");
+
+						for (let i = 0; i < len; i++) {
+							str += `
+                <div>
+                  <span class="name">${res.data.results[i].name.first} ${res.data.results[i].name.last}</span>
+                  <img src="${res.data.results[i].picture.large}">
+                  <span class="email">${res.data.results[i].email}</span>
+                </div>
+              `;
+							//也可以用createElement的方式
+							// newDiv.innerHTML = str;
+							// show.appendChild(newDiv);
+						}
+						show.innerHTML = str;
+					})
+					.catch((res) => {
+						console.log("res.error");
+					});
+			});
+		</script>
+	</body>
+</html>
